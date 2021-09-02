@@ -11,17 +11,24 @@ namespace DotNetFrameworkApp.Controllers
 {
     public class UserController : ApiController
     {
+        [HttpGet]
+        public IHttpActionResult GetUser()
+        {
+            return Ok("user data");
+        }
+
         [HttpPost]
-        public IHttpActionResult Login(string Username, string Password)
+        //public IHttpActionResult Login(string Username, string Password)
+        public IHttpActionResult Login(User user)
         {
             if (!ModelState.IsValid)
                 return BadRequest("Invalid data.");
 
             using (var ctx = new ApiDBContext())
             {
-                var user = ctx.Users.Where(s => s.UserName == Username && s.password == Password).FirstOrDefault();
+                var rsUser = ctx.Users.Where(s => s.UserName == user.UserName && s.Password == user.Password).FirstOrDefault();
 
-                if(user == null)
+                if(rsUser == null)
                 {
                     return Ok("Login Failed: UserName or Password is not Correct");
                 }
@@ -43,7 +50,7 @@ namespace DotNetFrameworkApp.Controllers
                     EmailId = user.EmailId,
                     UserName = user.UserName,
                     PhoneNo = user.PhoneNo,
-                    password = user.password
+                    Password = user.Password
                 });
                
                 ctx.SaveChanges();
