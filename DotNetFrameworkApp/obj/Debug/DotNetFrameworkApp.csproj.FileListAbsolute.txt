@@ -71,3 +71,4 @@ D:\dotNet\DotNetFrameworkApp\DotNetFrameworkApp\bin\EntityFramework.xml
 D:\dotNet\DotNetFrameworkApp\DotNetFrameworkApp\bin\EntityFramework.SqlServer.xml
 D:\dotNet\DotNetFrameworkApp\DotNetFrameworkApp\obj\Debug\DotNetFrameworkApp.Migrations.Initial.resources
 D:\dotNet\DotNetFrameworkApp\DotNetFrameworkApp\obj\Debug\DotNetFrameworkApp.csproj.GenerateResource.cache
+D:\dotNet\DotNetFrameworkApp\DotNetFrameworkApp\obj\Debug\DotNetFrameworkApp.Migrations.user.resources

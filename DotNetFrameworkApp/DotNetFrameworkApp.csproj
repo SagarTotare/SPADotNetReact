@@ -101,6 +101,10 @@
     <Compile Include="Migrations\202109011142596_Initial.designer.cs">
       <DependentUpon>202109011142596_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109020750348_user.cs" />
+    <Compile Include="Migrations\202109020750348_user.designer.cs">
+      <DependentUpon>202109020750348_user.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Grade.cs" />
     <Compile Include="Models\Student.cs" />
@@ -119,6 +123,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202109011142596_Initial.resx">
       <DependentUpon>202109011142596_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109020750348_user.resx">
+      <DependentUpon>202109020750348_user.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
