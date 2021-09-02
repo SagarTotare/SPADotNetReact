@@ -7,13 +7,13 @@ namespace DotNetFrameworkApp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class user : IMigrationMetadata
+    public sealed partial class AddUserTab : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(user));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddUserTab));
         
         string IMigrationMetadata.Id
         {
-            get { return "202109020750348_user"; }
+            get { return "202109020934530_AddUserTab"; }
         }
         
         string IMigrationMetadata.Source

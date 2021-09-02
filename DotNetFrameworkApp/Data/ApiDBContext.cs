@@ -17,6 +17,5 @@ namespace DotNetFrameworkApp.Data
         public DbSet<User> Users { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Grade> Grades { get; set; }
-
     }
 }

@@ -93,17 +93,14 @@
   <ItemGroup>
     <Compile Include="Configuration\WebAPIConfig.cs" />
     <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Data\ApiDBContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202109011142596_Initial.cs" />
-    <Compile Include="Migrations\202109011142596_Initial.designer.cs">
-      <DependentUpon>202109011142596_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202109020750348_user.cs" />
-    <Compile Include="Migrations\202109020750348_user.designer.cs">
-      <DependentUpon>202109020750348_user.cs</DependentUpon>
+    <Compile Include="Migrations\202109020941254_AddUserTab.cs" />
+    <Compile Include="Migrations\202109020941254_AddUserTab.Designer.cs">
+      <DependentUpon>202109020941254_AddUserTab.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Grade.cs" />
@@ -121,11 +118,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202109011142596_Initial.resx">
-      <DependentUpon>202109011142596_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109020750348_user.resx">
-      <DependentUpon>202109020750348_user.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202109020941254_AddUserTab.resx">
+      <DependentUpon>202109020941254_AddUserTab.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
