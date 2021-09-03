@@ -253,3 +253,16 @@ C:\Users\BGangadhara\source\repos\learnapp\SPADotNetReact\DotNetFrameworkApp\bin
 C:\Users\BGangadhara\source\repos\learnapp\SPADotNetReact\DotNetFrameworkApp\bin\System.IdentityModel.Tokens.Jwt.xml
 C:\Users\BGangadhara\source\repos\learnapp\SPADotNetReact\DotNetFrameworkApp\bin\System.Web.Http.Cors.xml
 C:\Users\BGangadhara\source\repos\learnapp\SPADotNetReact\DotNetFrameworkApp\bin\System.Web.Http.Owin.xml
+C:\Users\BGangadhara\source\repos\learnapp\SPADotNetReact\DotNetFrameworkApp\bin\Microsoft.Configuration.ConfigurationBuilders.Base.dll
+C:\Users\BGangadhara\source\repos\learnapp\SPADotNetReact\DotNetFrameworkApp\bin\Microsoft.Configuration.ConfigurationBuilders.Environment.dll
+C:\Users\BGangadhara\source\repos\learnapp\SPADotNetReact\DotNetFrameworkApp\bin\System.Configuration.ConfigurationManager.dll
+C:\Users\BGangadhara\source\repos\learnapp\SPADotNetReact\DotNetFrameworkApp\bin\System.Security.AccessControl.dll
+C:\Users\BGangadhara\source\repos\learnapp\SPADotNetReact\DotNetFrameworkApp\bin\System.Security.Permissions.dll
+C:\Users\BGangadhara\source\repos\learnapp\SPADotNetReact\DotNetFrameworkApp\bin\System.Security.Principal.Windows.dll
+C:\Users\BGangadhara\source\repos\learnapp\SPADotNetReact\DotNetFrameworkApp\bin\Microsoft.Configuration.ConfigurationBuilders.Base.xml
+C:\Users\BGangadhara\source\repos\learnapp\SPADotNetReact\DotNetFrameworkApp\bin\Microsoft.Configuration.ConfigurationBuilders.Environment.xml
+C:\Users\BGangadhara\source\repos\learnapp\SPADotNetReact\DotNetFrameworkApp\bin\System.Configuration.ConfigurationManager.xml
+C:\Users\BGangadhara\source\repos\learnapp\SPADotNetReact\DotNetFrameworkApp\bin\System.Security.AccessControl.xml
+C:\Users\BGangadhara\source\repos\learnapp\SPADotNetReact\DotNetFrameworkApp\bin\System.Security.Permissions.xml
+C:\Users\BGangadhara\source\repos\learnapp\SPADotNetReact\DotNetFrameworkApp\bin\System.Security.Principal.Windows.xml
+C:\Users\BGangadhara\source\repos\learnapp\SPADotNetReact\DotNetFrameworkApp\obj\Debug\DotNetFrameworkApp.csproj.AssemblyReference.cache

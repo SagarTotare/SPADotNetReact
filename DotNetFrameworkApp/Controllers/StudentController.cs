@@ -15,31 +15,7 @@ namespace DotNetFrameworkApp.Controllers
 {
     public class StudentController : ApiController
     {
-        [HttpGet]
-        public IHttpActionResult GetToken()
-        {
-            string key = "R91WaXU87SkPyFcvtyatLYe5LlVg1WH5"; 
-            var issuer = "http://localhost:54306/";
-
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
-            //Create a List of Claims, Keep claims name short    
-            var ClaimsList = new List<Claim>();
-            ClaimsList.Add(new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()));
-            ClaimsList.Add(new Claim("valid", "1"));
-            ClaimsList.Add(new Claim("userid", "1"));
-            ClaimsList.Add(new Claim("name", "Banu"));
-
-            //Create Security Token object by giving required parameters    
-            var token = new JwtSecurityToken(issuer, //Issure    
-                            issuer,  //Audience    
-                            ClaimsList,
-                            expires: DateTime.Now.AddDays(1),
-                            signingCredentials: credentials);
-            var jwt_token = new JwtSecurityTokenHandler().WriteToken(token);
-            return Ok(jwt_token);
-        }
+       
 
         [HttpGet]
         public IHttpActionResult GetIdCon()

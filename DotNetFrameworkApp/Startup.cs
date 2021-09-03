@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Jwt;
 using Microsoft.Owin.Security;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.Configuration;
 
 [assembly: OwinStartup(typeof(DotNetFrameworkApp.Startup))]
 
@@ -15,6 +16,7 @@ namespace DotNetFrameworkApp
     {
         public void Configuration(IAppBuilder app)
         {
+            string key = ConfigurationManager.AppSettings["JWTSecretKey"];
             app.UseJwtBearerAuthentication(
                 new JwtBearerAuthenticationOptions
                 {
@@ -24,9 +26,9 @@ namespace DotNetFrameworkApp
                         ValidateIssuer = true,
                         ValidateAudience = true,
                         ValidateIssuerSigningKey = true,
-                        ValidIssuer = "http://localhost:54306/",  
-                        ValidAudience = "http://localhost:54306/",
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("R91WaXU87SkPyFcvtyatLYe5LlVg1WH5"))
+                        ValidIssuer = ConfigurationManager.AppSettings["JWTIssuer"],  
+                        ValidAudience = ConfigurationManager.AppSettings["JWTIssuer"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key))
                     }
                 });
         }
