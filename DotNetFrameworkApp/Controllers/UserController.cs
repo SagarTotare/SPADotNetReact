@@ -6,9 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace DotNetFrameworkApp.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class UserController : ApiController
     {
         [HttpGet]
@@ -47,6 +49,7 @@ namespace DotNetFrameworkApp.Controllers
             {
                 ctx.Users.Add(new User()
                 {
+                    Name = user.Name,
                     EmailId = user.EmailId,
                     UserName = user.UserName,
                     PhoneNo = user.PhoneNo,
