@@ -6,11 +6,24 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace DotNetFrameworkApp.Controllers
 {
     public class StudentController : ApiController
     {
+       
+
+        [HttpGet]
+        public IHttpActionResult GetIdCon()
+        {
+            return Ok();
+        }
+
+        [Authorize]
         [HttpGet]
         public IHttpActionResult GetStudent()
         {
