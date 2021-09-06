@@ -10,9 +10,11 @@ using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
+using System.Web.Http.Cors;
 
 namespace DotNetFrameworkApp.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class StudentController : ApiController
     {
        
@@ -23,7 +25,7 @@ namespace DotNetFrameworkApp.Controllers
             return Ok();
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpGet]
         public IHttpActionResult GetStudent()
         {
@@ -40,6 +42,19 @@ namespace DotNetFrameworkApp.Controllers
             }
 
             return Ok(students);
+        }
+
+        [HttpGet]
+        public IHttpActionResult GetStudent(int id)
+        {
+            Student student = null;
+
+            using (var ctx = new ApiDBContext())
+            {
+                student = ctx.Students.Find(id);
+            }
+
+            return Ok(student);
         }
 
         [HttpPost]
