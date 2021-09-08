@@ -1,16 +1,10 @@
-import React, { Component } from "react";
-import {
-  Button,
-  Container,
-  Grid,
-  Menu,
-  Segment,
-  Visibility,
-} from "semantic-ui-react";
+import React from "react";
+import { Container, Grid, Menu, Segment, Visibility } from "semantic-ui-react";
 import StudentsList from "../Student/list";
 
 const HomepageLayout = () => {
   var fixed = null;
+
   return (
     <Visibility>
       <Segment inverted textAlign="center" vertical>

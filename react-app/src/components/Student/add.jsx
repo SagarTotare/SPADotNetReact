@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Button, Form, Grid, Header, Segment } from "semantic-ui-react";
 import SemanticDatepicker from "react-semantic-ui-datepickers";
 import "react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css";
-import axios from "axios";
 import { useHistory } from "react-router-dom";
+import apiService from "../../services/api.service";
 
 const AddStudent = (props) => {
   const [studentId, setStudentId] = useState("");
@@ -22,25 +22,22 @@ const AddStudent = (props) => {
   const initStudent = () => {
     const { id } = props.match.params;
     if (id) {
-      axios
-        .get(`http://localhost:54306/api/student/GetStudent/${id}`)
-        .then((response) => {
-          const { studentID, studentName, dateOfBirth, height, weight } =
-            response.data;
-          setStudentId(studentID);
-          setStudentName(studentName);
-          setHeight(height);
-          setWeight(weight);
-          setDateOfBirth(new Date(dateOfBirth));
-        });
+      apiService.get(`student/GetStudent/${id}`).then((response) => {
+        const { studentID, studentName, dateOfBirth, height, weight } =
+          response.data;
+        setStudentId(studentID);
+        setStudentName(studentName);
+        setHeight(height);
+        setWeight(weight);
+        setDateOfBirth(new Date(dateOfBirth));
+      });
     }
   };
 
-  const postData = () => {
-    debugger;
+  const saveData = () => {
     if (studentId) {
-      axios
-        .put(`http://localhost:54306/api/student/UpdateStudent/${studentId}`, {
+      apiService
+        .put(`student/UpdateStudent/${studentId}`, {
           studentName,
           dateOfBirth,
           height,
@@ -51,8 +48,8 @@ const AddStudent = (props) => {
           history.push("/");
         });
     } else {
-      axios
-        .post(`http://localhost:54306/api/student/AddStudent`, {
+      apiService
+        .post(`student/AddStudent`, {
           studentName,
           dateOfBirth,
           height,
@@ -74,7 +71,7 @@ const AddStudent = (props) => {
       >
         <Grid.Column style={{ maxWidth: 450 }}>
           <Header as="h2" color="teal" textAlign="center">
-            Add new student
+            {studentId ? "Edit " : "Add new"} student
           </Header>
           <Form size="large">
             <Segment stacked>
@@ -103,8 +100,8 @@ const AddStudent = (props) => {
                 value={weight}
                 onChange={(e) => setWeight(e.target.value)}
               />
-              <Button color="teal" fluid size="large" onClick={postData}>
-                Add Student
+              <Button color="teal" fluid size="large" onClick={saveData}>
+                {studentId ? "Edit " : "Add "} Student
               </Button>
             </Segment>
           </Form>

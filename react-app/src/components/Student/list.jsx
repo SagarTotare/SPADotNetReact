@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Grid, Table, Button, Icon } from "semantic-ui-react";
-import axios from "axios";
 import { useHistory } from "react-router-dom";
+import apiService from "../../services/api.service";
 
 const StudentsList = () => {
   const [studentsList, setStudentList] = useState([]);
@@ -13,11 +13,9 @@ const StudentsList = () => {
   const history = useHistory();
 
   const getStudents = () => {
-    axios
-      .get(`http://localhost:54306/api/student/GetStudent`)
-      .then((response) => {
-        setStudentList(response.data);
-      });
+    apiService.get("student/GetStudent").then((response) => {
+      setStudentList(response.data);
+    });
   };
 
   const addStudent = () => {
@@ -28,11 +26,10 @@ const StudentsList = () => {
     const shouldDelete = window.confirm(
       "Are you sure? you want to delete this student?"
     );
+
     if (shouldDelete) {
-      axios
-        .delete(
-          `http://localhost:54306/api/student/RemoveStudent/${e.currentTarget.value}`
-        )
+      apiService
+        .delete(`student/RemoveStudent/${e.currentTarget.value}`)
         .then((response) => {
           alert(response.data);
           getStudents();

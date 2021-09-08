@@ -7,7 +7,7 @@ import {
   Message,
   Segment,
 } from "semantic-ui-react";
-import axios from "axios";
+import apiService from "../../services/api.service";
 import { useHistory } from "react-router-dom";
 
 import logo from "../../logo.svg";
@@ -21,8 +21,8 @@ const RegistrationForm = () => {
   const [password, setPassword] = useState("");
 
   const postData = () => {
-    axios
-      .post(`http://localhost:54306/api/user/RegisterUser`, {
+    apiService
+      .post(`user/RegisterUser`, {
         name,
         emailId,
         phoneNo,
@@ -30,8 +30,11 @@ const RegistrationForm = () => {
         password,
       })
       .then((response) => {
-        alert(response.data);
-        history.push("/login");
+        if (response.data.accessToken) {
+          alert("Authentication success.");
+          localStorage.setItem("user", JSON.stringify(response.data));
+          history.push("/login");
+        }
       });
   };
 
