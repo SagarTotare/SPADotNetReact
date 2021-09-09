@@ -2,7 +2,14 @@ import axios from "axios";
 
 const API_URL = "http://localhost:54306/api/";
 
+// var token = sessionStorage.getItem('token');
+// if (token) {
+//     axios.defaults.headers.common['Authorization'] = token;
+// } else {
+//     axios.defaults.headers.common['Authorization'] = null;
+// }
 class ApiService {
+  
   get(url) {
     return axios.get(API_URL + url);
   }

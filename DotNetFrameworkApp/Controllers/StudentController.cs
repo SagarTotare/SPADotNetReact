@@ -25,7 +25,7 @@ namespace DotNetFrameworkApp.Controllers
             return Ok();
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         public IHttpActionResult GetStudent()
         {
@@ -44,6 +44,8 @@ namespace DotNetFrameworkApp.Controllers
             return Ok(students);
         }
 
+        [Authorize]
+
         [HttpGet]
         public IHttpActionResult GetStudent(int id)
         {
@@ -57,6 +59,7 @@ namespace DotNetFrameworkApp.Controllers
             return Ok(student);
         }
 
+        [Authorize]
         [HttpPost]
         public IHttpActionResult AddStudent(Student student)
         {
@@ -83,6 +86,7 @@ namespace DotNetFrameworkApp.Controllers
             return Ok("Student added.");
         }
 
+        [Authorize]
         [HttpPost]
         public IHttpActionResult AddGrade(Grade grade)
         {
@@ -98,6 +102,8 @@ namespace DotNetFrameworkApp.Controllers
             return Ok();
         }
 
+        [Authorize]
+
         [HttpPut]
         public IHttpActionResult UpdateStudent(int id, Student student)
         {
@@ -111,6 +117,7 @@ namespace DotNetFrameworkApp.Controllers
             return Ok("Data Updaed");
         }
 
+        [Authorize]
         [HttpDelete]
         public IHttpActionResult RemoveStudent(int id)
         {
