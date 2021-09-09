@@ -30,11 +30,8 @@ const RegistrationForm = () => {
         password,
       })
       .then((response) => {
-        if (response.data.accessToken) {
-          alert("Authentication success.");
-          localStorage.setItem("user", JSON.stringify(response.data));
-          history.push("/login");
-        }
+        alert(response.data);
+        history.push("/login");
       });
   };
 

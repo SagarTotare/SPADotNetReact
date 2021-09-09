@@ -21,17 +21,12 @@ const LoginForm = () => {
     axios
       .post(`http://localhost:54306/api/user/Login`, { userName, password })
       .then((response) => {
-        var tokenString = JSON.stringify(response.data);
-        var tokenJson = JSON.parse(tokenString);
-        var token = tokenJson['data'];
-        console.log(token);
-        sessionStorage.setItem("token", token);
-
-        alert(response.data);
-        if (
-          response.data != "Login Failed: UserName or Password is not Correct"
-        ) {
-          history.push("/home");
+        if (response.data) {
+          alert("Authentication success.");
+          localStorage.setItem("user", JSON.stringify(response.data));
+          history.push("/");
+        } else {
+          alert("Login Failed: UserName or Password is not Correct");
         }
       });
   };
