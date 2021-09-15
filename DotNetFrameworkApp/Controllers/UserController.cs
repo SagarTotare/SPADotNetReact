@@ -43,7 +43,7 @@ namespace DotNetFrameworkApp.Controllers
                             expires: DateTime.Now.AddDays(1),
                             signingCredentials: credentials);
             var jwt_token = new JwtSecurityTokenHandler().WriteToken(token);
-            return new { data = jwt_token };
+            return new { accessToken = jwt_token };
         }
 
         [HttpGet]

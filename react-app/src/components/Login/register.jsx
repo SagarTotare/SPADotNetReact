@@ -31,7 +31,7 @@ const RegistrationForm = () => {
       })
       .then((response) => {
         alert(response.data);
-        history.push("/login");
+        history.push("/");
       });
   };
 
@@ -92,7 +92,7 @@ const RegistrationForm = () => {
             </Segment>
           </Form>
           <Message>
-            Already have account? <a href="./login">Sign In</a>
+            Already have account? <a href="./">Sign In</a>
           </Message>
         </Grid.Column>
       </Grid>

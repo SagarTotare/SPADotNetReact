@@ -19,7 +19,7 @@ const StudentsList = () => {
   };
 
   const addStudent = () => {
-    history.push("student/add");
+    history.push("/admin/student/add");
   };
 
   const removeStudent = (e) => {
@@ -63,7 +63,7 @@ const StudentsList = () => {
             <Table.Body>
               {studentsList.map((value, index) => {
                 return (
-                  <Table.Row>
+                  <Table.Row key={index}>
                     <Table.Cell>{index + 1}</Table.Cell>
                     <Table.Cell>{value.studentName}</Table.Cell>
                     <Table.Cell>{value.dateOfBirth}</Table.Cell>

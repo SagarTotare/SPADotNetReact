@@ -24,7 +24,7 @@ const LoginForm = () => {
         if (response.data) {
           alert("Authentication success.");
           localStorage.setItem("user", JSON.stringify(response.data));
-          history.push("/");
+          history.push("/admin");
         } else {
           alert("Login Failed: UserName or Password is not Correct");
         }

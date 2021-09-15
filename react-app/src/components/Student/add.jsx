@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import apiService from "../../services/api.service";
 
 const AddStudent = (props) => {
+  const [errors, setErrors] = useState({});
   const [studentId, setStudentId] = useState("");
   const [studentName, setStudentName] = useState("");
   const [height, setHeight] = useState("");
@@ -35,6 +36,9 @@ const AddStudent = (props) => {
   };
 
   const saveData = () => {
+    if (!validateForm()) {
+      return true;
+    }
     if (studentId) {
       apiService
         .put(`student/UpdateStudent/${studentId}`, {
@@ -45,7 +49,7 @@ const AddStudent = (props) => {
         })
         .then((response) => {
           alert(response.data);
-          history.push("/");
+          history.push("/admin/student");
         });
     } else {
       apiService
@@ -57,9 +61,59 @@ const AddStudent = (props) => {
         })
         .then((response) => {
           alert(response.data);
-          history.push("/");
+          history.push("/admin/student");
         });
     }
+  };
+
+  const validateForm = () => {
+    let isFormValid = true;
+    if (!studentName) {
+      isFormValid = false;
+      errors["studentName"] = {
+        error: {
+          content: "Please enter student name",
+          pointing: "below",
+        },
+      };
+    } else {
+      delete errors["studentName"];
+    }
+
+    if (!dateOfBirth) {
+      isFormValid = false;
+    } else {
+      delete errors["dateOfBirth"];
+    }
+
+    if (!height) {
+      isFormValid = false;
+      errors["height"] = {
+        error: {
+          content: "Please enter Height",
+          pointing: "below",
+        },
+      };
+    } else {
+      delete errors["height"];
+    }
+
+    if (!weight) {
+      isFormValid = false;
+      errors["weight"] = {
+        error: {
+          content: "Please enter weight",
+          pointing: "below",
+        },
+      };
+    } else {
+      delete errors["weight"];
+    }
+
+    if (!isFormValid) {
+      setErrors({ ...errors });
+    }
+    return isFormValid;
   };
 
   return (
@@ -76,6 +130,8 @@ const AddStudent = (props) => {
           <Form size="large">
             <Segment stacked>
               <Form.Input
+                {...errors.studentName}
+                placeholder="First name"
                 fluid
                 icon="user"
                 iconPosition="left"
@@ -83,8 +139,13 @@ const AddStudent = (props) => {
                 value={studentName}
                 onChange={(e) => setStudentName(e.target.value)}
               />
-              <SemanticDatepicker value={dateOfBirth} onChange={onChangeDOB} />
+              <SemanticDatepicker
+                {...errors.dateOfBirth}
+                value={dateOfBirth}
+                onChange={onChangeDOB}
+              />
               <Form.Input
+                {...errors.height}
                 fluid
                 icon="text height"
                 iconPosition="left"
@@ -93,6 +154,7 @@ const AddStudent = (props) => {
                 onChange={(e) => setHeight(e.target.value)}
               />
               <Form.Input
+                {...errors.weight}
                 fluid
                 icon="weight"
                 iconPosition="left"
