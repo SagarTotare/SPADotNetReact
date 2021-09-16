@@ -15,13 +15,16 @@ import logo from "../../logo.svg";
 const LoginForm = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [counter, setCounter] = useState("");
 
   const history = useHistory();
   const postData = () => {
     axios
       .post(`http://localhost:54306/api/user/Login`, { userName, password })
       .then((response) => {
-        if (response.data) {
+        if (
+          response.data !== "Login Failed: UserName or Password is not Correct"
+        ) {
           alert("Authentication success.");
           localStorage.setItem("user", JSON.stringify(response.data));
           history.push("/admin");
@@ -31,11 +34,24 @@ const LoginForm = () => {
       });
   };
 
+  const throwError = () => {
+    setCounter(counter + 1);
+  };
+
+  if (counter >= 3) {
+    throw new Error("I crashed!");
+  }
+
   return (
     <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as="h2" color="teal" textAlign="center">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img
+            src={logo}
+            className="App-logo"
+            alt="logo"
+            onClick={throwError}
+          />
           Log-in to your account
         </Header>
         <Form size="large">

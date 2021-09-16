@@ -42,6 +42,12 @@ class ApiService {
     //todo : delete from backend
     localStorage.removeItem("user");
   }
+
+  logError(error, info) {
+    //todo: send data to api service
+    console.error(error);
+    console.warn(info);
+  }
 }
 
 export default new ApiService();
